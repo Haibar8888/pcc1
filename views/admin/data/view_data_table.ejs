@@ -1,0 +1,84 @@
+<div class="card shadow mb-4">
+    <div class="card-header py-3">
+        <!-- Button trigger modal -->
+        <div class="row">
+            <a href="/admin/data/add" class="btn btn-warning">
+                <i class="fas fa-plus"></i>
+            </a>
+        </div>
+    </div>
+    <div class="card-body" data-aos="fade-up">
+        <div class="row">
+            <div class="col">
+                <div class="table-responsive">
+                    <table
+                        class="table table-bordered"
+                        id="tableBank"
+                        width="100%"
+                        cellspacing="0"
+                    >
+                        <thead>
+                            <tr>
+                                <th>No</th>
+                                <th>Tanggal</th>
+                                <th>Name Pasien</th>
+                                <th>Usia</th>
+                                <th>JK</th>
+                                <th>Timing Masuk</th>
+                                <th>Diagnosa</th>
+                                <th>News/Pews</th>
+                                <th>Status Rujukan</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <% laporan.map((data,i) => { %>
+                            <tr>
+                                <td><%= i + 1 %></td>
+                                <td>
+                                    <%=
+                                    data.tanggal.toLocaleString().split(',')[0]
+                                    %>
+                                </td>
+                                <td><%= data.nama %></td>
+                                <td><%= data.usia %></td>
+                                <td><%= data.jk %></td>
+                                <td><%= data.timingMasuk %></td>
+                                <td><%- data.diagnosa %></td>
+                                <td><%= data.news %></td>
+                                <td><%= data.status %></td>
+                                <td>
+                                    <a
+                                        href="/admin/data/<%= data.id %>/edit"
+                                        class="btn btn-warning btn-circle btn-sm button-edit"
+                                        ><i class="fas fa-edit"></i
+                                    ></a>
+                                    <form
+                                        action="/admin/data/<%= data.id %>/delete?_method=DELETE"
+                                        method="POST"
+                                        class="d-inline"
+                                    >
+                                        <button
+                                            type="submit"
+                                            class="btn btn-danger btn-circle btn-sm"
+                                            onclick="return confirm('anda yakin ingin dihapus')"
+                                        >
+                                            <i class="fas fa-trash"></i>
+                                        </button>
+                                    </form>
+                                    <a
+                                        href="/admin/data/detail/<%= data.id %>"
+                                        class="btn btn-success btn-circle btn-sm"
+                                    >
+                                        <i class="fas fa-plus"></i>
+                                    </a>
+                                </td>
+                            </tr>
+                            <% }) %>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

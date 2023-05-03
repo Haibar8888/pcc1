@@ -1,0 +1,265 @@
+<div class="container-fluid">
+    <!-- Page Heading -->
+    <div
+        class="d-sm-flex align-items-center justify-content-between mb-4"
+        data-aos="fade-up"
+    >
+        <h1 class="h3 mb-0 text-gray-800">DASHBOARD</h1>
+    </div>
+    <!-- Content Row -->
+    <div class="row">
+        <!-- Earnings (Monthly) Card Example -->
+        <!-- <div
+            class="col-xl-3 col-md-6 mb-4"
+            data-aos="fade-left"
+            data-aos-delay="100"
+        >
+            <div class="card border-left-primary shadow h-100 py-2">
+                <div class="card-body">
+                    <div class="row no-gutters align-items-center">
+                        <div class="col mr-2">
+                            <div
+                                class="text-xs font-weight-bold text-primary text-uppercase mb-1"
+                            >
+                                PASIEN
+                            </div>
+                            <div class="h5 mb-0 font-weight-bold text-gray-800">
+                                <%= laporan.length %>
+                            </div>
+                        </div>
+                        <div class="col-auto">
+                            <i class="fas fa-calendar fa-2x text-gray-300"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div> -->
+
+        <!-- Earnings (Monthly) Card Example -->
+
+        <!-- Earnings (Monthly) Card Example -->
+        <div
+            class="col-xl-3 col-md-6 mb-4"
+            data-aos="fade-left"
+            data-aos-delay="300"
+        >
+            <div class="card border-left-info shadow h-100 py-2">
+                <div class="card-body">
+                    <div class="row no-gutters align-items-center">
+                        <div class="col mr-2">
+                            <div
+                                class="text-xs font-weight-bold text-info text-uppercase mb-1"
+                            >
+                                DITERIMA
+                            </div>
+                            <div class="row no-gutters align-items-center">
+                                <div class="col-auto">
+                                    <div
+                                        class="h5 mb-0 mr-3 font-weight-bold text-gray-800"
+                                    >
+                                        <%= diterimaFix %>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-auto" style="font-size: 30px;">
+                            <%= `${diterimaPersen}%` %>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div
+            class="col-xl-3 col-md-6 mb-4"
+            data-aos="fade-left"
+            data-aos-delay="200"
+        >
+            <div class="card border-left-success shadow h-100 py-2">
+                <div class="card-body">
+                    <div class="row no-gutters align-items-center">
+                        <div class="col mr-2">
+                            <div
+                                class="text-xs font-weight-bold text-success text-uppercase mb-1"
+                            >
+                                DITUNDA
+                            </div>
+                            <div class="h5 mb-0 font-weight-bold text-gray-800">
+                                <%= ditunda %>
+                            </div>
+                        </div>
+                        <div class="col-auto" style="font-size: 30px;">
+                            <%= `${ditundaPersen}%` %>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Pending Requests Card Example -->
+        <div
+            class="col-xl-3 col-md-6 mb-4"
+            data-aos="fade-left"
+            data-aos-delay="400"
+        >
+            <div class="card border-left-warning shadow h-100 py-2">
+                <div class="card-body">
+                    <div class="row no-gutters align-items-center">
+                        <div class="col mr-2">
+                            <div
+                                class="text-xs font-weight-bold text-warning text-uppercase mb-1"
+                            >
+                                DIALIHKAN
+                            </div>
+                            <div class="h5 mb-0 font-weight-bold text-gray-800">
+                                <%= dialihkan %>
+                            </div>
+                        </div>
+                        <div class="col-auto" style="font-size: 30px;">
+                            <%= `${dialihkanPersen}%` %>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div
+            class="col-xl-3 col-md-6 mb-4"
+            data-aos="fade-left"
+            data-aos-delay="500"
+        >
+            <div class="card border-left-warning shadow h-100 py-2">
+                <div class="card-body">
+                    <div class="row no-gutters align-items-center">
+                        <div class="col mr-2">
+                            <div
+                                class="text-xs font-weight-bold text-warning text-uppercase mb-1"
+                            >
+                                TOTAL RUJUKAN
+                            </div>
+                            <div class="h5 mb-0 font-weight-bold text-gray-800">
+                                <%= diterima.length %>
+                            </div>
+                        </div>
+                        <div class="col-auto" style="font-size: 30px;">
+                            <%= totalPersen %>%
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div
+        class="d-sm-flex align-items-center justify-content-between mb-4"
+        data-aos="fade-up"
+    >
+        <h1 class="h3 mb-0 text-gray-800">
+            <a href="/admin/data" style="text-decoration: none; color: grey;"
+                >PASIEN</a
+            >
+        </h1>
+    </div>
+    <% laporan.map((data,i = 0) => { %>
+    <a
+        href="/admin/data/detail/<%= data.id %>"
+        style="text-decoration: none; color: grey;"
+    >
+        <div class="row mb-3" data-aos="fade-up">
+            <div class="col-md-12 justify-content-center align-items-center">
+                <div
+                    class="card border-left-<%= data.news <= 2 ? 'success' : data.news <= 5 ? 'warning' : data.news < 6 ? 'danger' : 'danger' %>"
+                >
+                    <div class="card-header">
+                        <%= data.nama %>
+                    </div>
+                    <div class="card-body">
+                        <div class="row d-flex align-items-center">
+                            <div class="col-4 d-flex">
+                                <div class="row">
+                                    <canvas id="myPieChart<%=i + 1 %>"></canvas>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <ul class="data">
+                                    <li>Nama : <%= data.nama %></li>
+                                    <li>Jenis kelamin : <%= data.jk %></li>
+                                    <li>Asal Rumah Sakit : <%= data.asal %></li>
+                                    <li>Usia : <%= data.usia %></li>
+                                    <li>News/Pews : <%= data.news %></li>
+                                    <li>
+                                        Waktu Masuk: <%= data.timingMasuk %>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="col-md-2">
+                                <p>Waktu Respon</p>
+                                <p class="time"><%= data.responTime %></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </a>
+    <% }) %>
+    <input
+        type="hidden"
+        value="<%= data %>"
+        name="laporanData"
+        id="laporanData"
+        class="laporanData"
+    />
+    <!-- harian content -->
+    <!-- Content Row -->
+    <!-- konten harian -->
+    <div class="container-fluid">
+        <%- include('../../partials/message.ejs') %>
+        <!-- Page Heading -->
+
+        <!-- End of Main Content -->
+
+        <div class="row">
+            <!-- Content Column -->
+
+            <div class="col-lg-12 mb-4">
+                <!-- Illustrations -->
+
+                <!-- Approach -->
+                <div class="card shadow mb-4">
+                    <div class="card-header py-3">
+                        <h6 class="m-0 font-weight-bold text-primary">
+                            Data Laporan
+                        </h6>
+                    </div>
+                    <div class="card-body">
+                        <div class="chartMenu">
+                            <input
+                                onchange="filterData()"
+                                type="date"
+                                value="2023-05-01"
+                                id="startDate"
+                            />
+                            <input
+                                onchange="filterData()"
+                                type="date"
+                                value="2023-05-03"
+                                id="endDate"
+                            />
+                        </div>
+                        <div class="chartCard">
+                            <div class="chartBox">
+                                <canvas id="myChart"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Footer -->
+        <%- include('../../partials/footer') %>
+        <!-- End of Footer -->
+    </div>
+
+    <!-- konten bulanan -->
+
+    <!-- Content Row -->
+</div>

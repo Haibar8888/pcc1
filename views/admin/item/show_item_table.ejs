@@ -1,0 +1,74 @@
+<div class="card shadow mb-4">
+  <div class="card-body">
+    <div class="table-responsive">
+      <table
+        class="table table-bordered"
+        id="dataTable"
+        width="100%"
+        cellspacing="0"
+      >
+        <thead>
+          <tr>
+            <th>No</th>
+            <th>Title</th>
+            <th>Price</th>
+            <th>Country</th>
+            <th>City</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tfoot>
+          <tr>
+            <th>No</th>
+            <th>Title</th>
+            <th>Price</th>
+            <th>Country</th>
+            <th>City</th>
+            <th>Action</th>
+          </tr>
+        </tfoot>
+        <tbody>
+          <% item.map((data,i) => { %> 
+            <tr>
+            <td><%= i+ 1 %></td>
+            <td><%= data.title %></td>
+            <td><%= data.price%></td>
+            <td><%= data.country %></td>
+            <td><%= data.city %></td>
+            <td>
+              <a href="/admin/item/show-image/<%= data.id %>" class="btn btn-info btn-circle btn-sm">
+                <i class="fas fa-image"></i
+              >
+              </a>
+              
+              <a
+                href="/admin/item/<%= data.id %>"
+                class="btn btn-warning btn-circle btn-sm button-edit"
+                ><i class="fas fa-edit"></i
+              ></a>
+              <form
+                action="/admin/item/<%= data.id %>/delete?_method=DELETE"
+                method="POST"
+                class="d-inline"
+              
+              >
+                <button type="submit" class="btn btn-danger btn-circle btn-sm" onclick="return confirm('anda yakin ingin dihapus')">
+                  <i
+                    class="fas fa-trash"
+                  ></i>
+                </button>
+              </form>
+              <a href="/admin/item/show-item-detail/<%= data.id %>" class="btn btn-success btn-circle btn-sm">
+                <i class="fas fa-plus"></i
+              >
+              </a>
+            </td>
+          </tr>
+            </tr>
+            <% }) %>
+          
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

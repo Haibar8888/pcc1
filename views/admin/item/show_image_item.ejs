@@ -1,0 +1,18 @@
+<div class="row">
+  <% for (let index = 0; index < item.imageId.length; index++) { %>
+  <div class="col-md-4">
+    <div class="card shadow mb-4">
+      <div class="card-body">
+        <img
+          src="http://localhost:3000/<%= item.imageId[index].imageUrl %>"
+          alt="image"
+          style="width: 100%; display: block"
+        />
+      </div>
+    </div>
+  </div>
+  <% } %>
+</div>
+<div class="row">
+  <a href="/admin/item" class="btn btn-warning btn-sm">Back</a>
+</div>

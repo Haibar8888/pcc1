@@ -1,0 +1,145 @@
+<!-- Modal -->
+<div
+  class="modal fade"
+  id="edit-modal"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Tambah Log</h5>
+        <button
+          type="button"
+          class="close"
+          data-dismiss="modal"
+          aria-label="Close"
+        >
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+       <!-- form  --> 
+     <form action="/admin/menu?_method=PUT" method="POST">
+      <div class="modal-body">
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input
+              type="text"
+              class="form-control name"
+              name="name"
+              aria-describedby="emailHelp"
+              placeholder="Enter Name Barang"
+              required
+              disabled
+            />
+          </div>
+        <div class="form-group">
+            <label for="subkategori">Ruangan</label>
+            <select class="form-control" id="lokasi" name="lokasiId">
+                <option class="lokasi"></option>           
+            </select>
+        </div> 
+        <div class="form-group">
+            <label for="qty">Qty</label>
+            <input
+              type="number"
+              class="form-control qty"
+              name="qty"
+              id="qty"
+              aria-describedby="emailHelp"
+              required
+              disabled
+              
+            />
+          </div>
+        <div class="form-group">
+            <label for="total">Hasil</label>
+            <input
+              type="text"
+              class="form-control hasil"
+              name="hasil"
+              id ="hasil"
+              aria-describedby="emailHelp"  
+            />
+          </div>
+          <!-- <div class="form-group">
+            <input
+              type="number"
+              class="form-control s1"
+              name="s1"
+              aria-describedby="emailHelp"
+              placeholder="Enter Name Barang"
+              required
+              disabled
+            />
+          </div> -->
+        <div class="row">
+            <div class="col-md-4">
+                <div class="btn-group btn-group-toggle" data-toggle="buttons">
+            <label class="btn btn-success active">
+                <input type="radio" class="in" name="in" id="in" autocomplete="off" checked onclick="tambahInput()"> IN
+            </label>
+            <label class="btn btn-primary">
+                <input type="radio" name="options" id="option3" autocomplete="off" onclick="stockAwal()"> Stock Awal
+            </label>
+            <label class="btn btn-danger">
+                <input type="radio" name="options" id="option2" autocomplete="off" onclick="kurangiInput()"> OUT
+            </label>
+        </div>
+            </div>
+            <div class="col-md-8">
+            <input
+              type="number"
+              class="form-control input"
+              name="input"
+              id="input"
+              aria-describedby="emailHelp"
+              placeholder="stok awal"
+             
+            />
+            <input
+              type="number"
+              class="form-control i2"
+              name="i2"
+              id="i2"
+              aria-describedby="emailHelp"
+              placeholder="IN"
+              
+            />
+            <input
+              type="number"
+              class="form-control r3"
+              name="r3"
+              id="r3"
+              aria-describedby="emailHelp"
+              placeholder="OUT"
+              
+            />
+            <div class="form-group">
+            <input
+              type="hidden"
+              class="form-control keterangan"
+              name="keterangan"
+              id ="keterangan"
+              aria-describedby="emailHelp"  
+            />
+          </div>
+            </div>
+        </div>
+
+        </div>
+        
+        <div class="modal-footer">
+          <input type="hidden" class="id" name="id" id="id">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">
+            Close
+          </button>
+          <button type="submit" class="btn btn-primary">Simpan</button>
+        </form>
+         <!-- end form -->
+      </div>
+    </div>
+  </div>
+</div>

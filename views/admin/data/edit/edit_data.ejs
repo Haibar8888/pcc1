@@ -1,0 +1,298 @@
+<div class="container-fluid">
+    <!-- Page Heading -->
+
+    <div class="card border-left-primary" data-aos="fade-up">
+        <div class="card-header">
+            <h1 class=" h3 text-gray-800">Edit Data</h1>
+        </div>
+        <div class="card-body">
+            <form
+                action="/admin/data/<%= laporan.id %>?_method=PUT"
+                method="POST"
+            >
+                <div class="row">
+                    <div class="col-md-6">
+                        <label for="tanggal">Tanggal</label>
+                        <input
+                            type="text"
+                            class="form-control"
+                            onfocus="(this.type='date')"
+                            onblur="if(this.value) this.type='text'"
+                            name="tanggal"
+                            id="tanggal"
+                            value="<%= laporan.tanggal.toLocaleString().split(',')[0] %>"
+                        />
+                    </div>
+                </div>
+                <div class="form-row mb-3">
+                    <div class="col">
+                        <label for="">Nama</label>
+                        <input
+                            type="text"
+                            class="form-control"
+                            name="nama"
+                            id="nama"
+                            value="<%= laporan.nama %>"
+                            placeholder="Nama"
+                        />
+                    </div>
+                    <div class="col">
+                        <label for="usia">Usia</label>
+                        <input
+                            type="number"
+                            class="form-control"
+                            name="usia"
+                            id="usia"
+                            placeholder="Usia"
+                            value="<%= laporan.usia %>"
+                        />
+                    </div>
+                </div>
+                <div class="form-row mb-3">
+                    <div class="col">
+                        <label for="jk">Jenis Kelamin</label>
+                        <select class="custom-select" name="jk" id="jk">
+                            <option selected value="<%= laporan.jk %>"
+                                ><%= laporan.jk %></option
+                            >
+                            <option value="Pria">Pria</option>
+                            <option value="Wanita">Wanita</option>
+                        </select>
+                    </div>
+                    <div class="col">
+                        <label for="akses">Akses Screening</label>
+                        <input
+                            type="text"
+                            class="form-control"
+                            name="akses"
+                            id="akses"
+                            value="<%= laporan.akses %>"
+                            placeholder="Wa"
+                        />
+                    </div>
+                </div>
+                <div class="form-row mb-3">
+                    <div class="col">
+                        <label for="asal">Asal RS</label>
+                        <input
+                            type="text"
+                            class="form-control"
+                            name="asal"
+                            id="asal"
+                            value="<%= laporan.asal %>"
+                            placeholder="Asal RS"
+                        />
+                    </div>
+                    <div class="col">
+                        <label for="dokter">Dokter Perujuk</label>
+                        <input
+                            type="text"
+                            class="form-control"
+                            name="dokter"
+                            id="dokter"
+                            value="<%= laporan.dokter %>"
+                            placeholder="Dokter Perujuk"
+                        />
+                    </div>
+                </div>
+                <div class="form-row mb-3">
+                    <div class="col">
+                        <label for="rujuk">Alasan Dirujuk</label>
+                        <input
+                            type="text"
+                            class="form-control"
+                            name="rujuk"
+                            id="rujuk"
+                            value="<%= laporan.rujuk %>"
+                            placeholder="Alasan dirujuk"
+                        />
+                    </div>
+                    <div class="col">
+                        <label for="news">News/Pews</label>
+                        <input
+                            type="number"
+                            class="form-control"
+                            name="news"
+                            id="news"
+                            value="<%= laporan.news %>"
+                            placeholder="News/Pews"
+                        />
+                    </div>
+                </div>
+                <div class="form-row mb-3">
+                    <div class="col">
+                        <label for="kebutuhan">Kebutuhan Dirujuk</label>
+                        <input
+                            type="text"
+                            class="form-control"
+                            name="kebutuhan"
+                            id="kebutuhan"
+                            value="<%= laporan.kebutuhan %>"
+                            placeholder="Kebutuhan Dirujuk"
+                        />
+                    </div>
+                    <div class="col">
+                        <label for="prioritas">Prioritas</label>
+                        <input
+                            type="text"
+                            class="form-control"
+                            name="prioritas"
+                            id="prioritas"
+                            value="<%= laporan.prioritas %>"
+                            placeholder="Prioritas"
+                        />
+                    </div>
+                </div>
+                <div class="form-row mb-3">
+                    <div class="col">
+                        <label for="knsl">KNSL KE</label>
+                        <input
+                            type="text"
+                            class="form-control"
+                            name="knsl"
+                            id="knsl"
+                            value="<%= laporan.knsl %>"
+                            placeholder="KNSL KE"
+                        />
+                    </div>
+                    <div class="col">
+                        <label for="klkpn">Timing Kelengkapan Berkas</label>
+                        <input
+                            type="text"
+                            class="form-control"
+                            name="klkpn"
+                            id="klkpn"
+                            value="<%= laporan.klkpn %>"
+                            placeholder="klkpn"
+                        />
+                    </div>
+                </div>
+                <div class="form-row mb-3">
+                    <div class="col">
+                        <label for="file">File Konfirm</label>
+                        <input
+                            type="file"
+                            class="form-control"
+                            name="file"
+                            id="file"
+                            placeholder="File Konfirm"
+                        />
+                    </div>
+                    <div class="col">
+                        <label for="status">Stuts Rujukan</label>
+                        <select class="custom-select" name="status" id="status">
+                            <option selected value="<%= laporan.status %>"
+                                ><%= laporan.status %></option
+                            >
+                            <option value="Diterima">Diterima</option>
+                            <option value="Dialihkan">Dialihkan</option>
+                            <option value="Ditunda">Ditunda</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-row mb-3">
+                    <div class="col">
+                        <label for="dpjp">Advisi Dokter Konsulan DPJP</label>
+                        <input
+                            type="text"
+                            class="form-control"
+                            name="dpjp"
+                            id="dpjp"
+                            value="<%= laporan.dpjp %>"
+                            placeholder="Advisi Dokter Konsulan DPJP"
+                        />
+                    </div>
+                    <div class="col">
+                        <label for="satgas"
+                            >Advisi Dokter Konsulan Satgas</label
+                        >
+                        <input
+                            type="text"
+                            class="form-control"
+                            name="satgas"
+                            id="satgas"
+                            value="<%= laporan.satgas %>"
+                            placeholder="Advisi Dokter Konsulan Satgas"
+                        />
+                    </div>
+                </div>
+                <div class="form-row mb-3">
+                    <div class="col">
+                        <label for="timingMasuk">Timing Masuk</label>
+                        <input
+                            type="time"
+                            class="form-control"
+                            name="timingMasuk"
+                            id="timingMasuk"
+                            value="<%= laporan.timingMasuk %>"
+                            placeholder="Timing Masuk"
+                        />
+                    </div>
+                    <div class="col">
+                        <label for="respon">Respon Time</label>
+                        <input
+                            type="time"
+                            class="form-control"
+                            name="responTime"
+                            id="responTime"
+                            value="<%= laporan.responTime %>"
+                            placeholder="Respon Time"
+                        />
+                    </div>
+                </div>
+                <div class="form-row mb-3">
+                    <div class="col">
+                        <label for="timingStatus">Timing Status</label>
+                        <input
+                            type="time"
+                            class="form-control"
+                            name="timingStatus"
+                            id="timingStatus"
+                            value="<%= laporan.timingStatus %>"
+                            placeholder="Timing Status"
+                        />
+                    </div>
+                    <div class="col">
+                        <label for="operator">Operator</label>
+                        <input
+                            type="text"
+                            class="form-control"
+                            name="operator"
+                            id="operator"
+                            value="<%= laporan.operator %>"
+                            placeholder="Operator"
+                        />
+                    </div>
+                </div>
+                <div class="form-row mb-2">
+                    <div class="col">
+                        <label for="diagnosa">Diagnosa</label>
+                        <textarea
+                            id="summernote"
+                            name="diagnosa"
+                            class=""
+                            placeholder="Diagnosa"
+                        >
+<%= laporan.diagnosa %></textarea
+                        >
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="col">
+                        <label for="keterangan">Keterangan</label>
+                        <textarea id="summernote1" name="keterangan" class="">
+<%= laporan.keterangan %></textarea
+                        >
+                    </div>
+                </div>
+                <div class="form-row mt-2">
+                    <div class="col-md-12">
+                        <button type="submit" class="btn btn-primary">
+                            Edit
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,76 @@
+<div class="row">
+  <div class="col-md-5">
+    <a href="/admin/booking" class="btn btn-warning">Back</a>
+  </div>
+</div>
+<div class="row mt-3">
+  <div class="col-md-7">
+    <div class="table-responsive">
+      <table
+        class="table table-bordered"
+        id="data"
+        width="100%"
+        cellspacing="0"
+      >
+        <thead>
+          <tr>
+            <th>Nama Member</th>
+            <th>Total</th>
+            <th>Bank From</th>
+            <th>Status</th>
+            <th>Title</th>
+          </tr>
+        </thead>
+        <tfoot>
+          <tr>
+            <th>Nama Member</th>
+            <th>Total</th>
+            <th>Bank From</th>
+            <th>Status</th>
+            <th>Title</th>
+          </tr>
+        </tfoot>
+        <tbody>
+          <tr>
+            <td>
+              <%= booking.memberId.firstName %> <%= booking.memberId.lastName %>
+            </td>
+            <td>$<%= booking.total %></td>
+            <td><%= booking.payments.bankFrom %></td>
+            <td><%= booking.payments.status %></td>
+            <td><%= booking.itemId.title %></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="col-md-5">
+    <img
+      src="http://localhost:3000/<%= booking.payments.proofPayment %>"
+      alt="image"
+      style="width: 100%; height: 800px; display: block"
+    />
+    <% if (booking.payments.status == 'Proses') { %>
+    <form
+      action="/admin/booking/<%= booking.id %>/confirmation?_method=PUT"
+      method="POST"
+      class="d-inline"
+    >
+      <button type="submit" class="btn btn-success">
+        <i class="fas fa-check"></i>
+        Confirmation
+      </button>
+    </form>
+    <form
+      action="/admin/booking/<%= booking.id %>/reject?_method=PUT"
+      method="POST"
+      class="d-inline"
+    >
+      <button type="submit" class="btn btn-danger">
+        <i class="fas fa-times"></i>
+        Reject
+      </button>
+    </form>
+    <% } %>
+  </div>
+</div>

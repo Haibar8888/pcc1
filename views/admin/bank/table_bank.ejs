@@ -1,0 +1,78 @@
+<div class="card shadow mb-4">
+  <div class="card-header py-3">
+    <!-- Button trigger modal -->
+    <button
+      type="button"
+      class="btn btn-primary"
+      data-toggle="modal"
+      data-target="#add-modal"
+    >
+      <i class="fas fa-plus"></i>
+    </button>
+  </div>
+  <div class="card-body">
+    <div class="table-responsive">
+      <table
+        class="table table-bordered"
+        id="tableBank"
+        width="100%"
+        cellspacing="0"
+      >
+        <thead>
+          <tr>
+            <th>No</th>
+            <th>Name Bank</th>
+            <th>Nomor Rekening</th>
+            <th>Name</th>
+            <th>Image</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% bank.map((result,key) => {%>
+          <tr>
+            <td><%= key+1 %></td>
+            <td><%= result.nameBank %></td>
+            <td><%= result.nomorRekening %></td>
+            <td><%= result.name %></td>
+            <td>
+              <img
+                src="http://localhost:3000/<%=result.imageUrl %>"
+                alt="imageUrl"
+                width="70px"
+              />
+            </td>
+
+            <td>
+              <a
+                href="javascript:void()"
+                type="button"
+                class="btn btn-warning btn-circle btn-sm button-edit"
+                data-id="<%=result.id %>"
+                data-name="<%=result.name %>"
+                data-namebank=" <%=result.nameBank%>"
+                data-nomorrekening=" <%=result.nomorRekening%>"
+                ><i class="fas fa-edit"></i
+              ></a>
+              <form
+                action="/admin/bank/<%=result.id %>?_method=DELETE"
+                method="POST"
+                class="d-inline"
+                id="del-<%= result.id %>"
+              >
+                <button
+                  type="submit"
+                  class="btn btn-danger btn-circle btn-sm"
+                  onclick="return confirm('Anda yakin ingin dihapus')"
+                >
+                  <i class="fas fa-trash"></i>
+                </button>
+              </form>
+            </td>
+          </tr>
+          <% }) %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

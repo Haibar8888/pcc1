@@ -1,0 +1,68 @@
+<!-- Modal -->
+<div
+  class="modal fade"
+  id="edit-modal"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Update Feature</h5>
+        <button
+          type="button"
+          class="close"
+          data-dismiss="modal"
+          aria-label="Close"
+        >
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+       <!-- form  --> 
+      <form action="/admin/item/edit/feature?_method=PUT" method="POST" enctype="multipart/form-data">
+      <div class="modal-body">  
+          <div class="form-group">
+            <label for="nama">Name</label>
+            <input
+              type="text"
+              class="form-control nama"
+              name="nama"
+              aria-describedby="emailHelp"
+              placeholder="Enter Name"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label for="qty">Qty</label>
+            <input
+              type="text"
+              class="form-control qty"
+              name="qty"
+              aria-describedby="emailHelp"
+              placeholder="Enter Qty"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label for="name">Image</label>
+            <input
+              type="file"
+              class="form-control image"
+              name="image"
+              aria-describedby="emailHelp"
+            />
+            <small class="">Pilih gambar untuk update image</small>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <input type="hidden" class="id" name="id">
+           <input type="hidden" value="<%= itemId %>" name="itemId" />
+          <button type="submit" class="btn btn-primary">Update</button>
+        </form>
+         <!-- end form -->
+      </div>
+    </div>
+  </div>
+</div>

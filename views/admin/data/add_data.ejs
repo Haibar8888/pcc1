@@ -1,0 +1,375 @@
+<!-- Modal -->
+<div
+  class="modal fade"
+  id="add-modal"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">DATA</h5>
+        <button 
+          type="button"
+          class="close"
+          data-dismiss="modal"
+          aria-label="Close"
+        >
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+       <!-- form  --> 
+      <form action="/admin/barang" method="POST">
+      <div class="modal-body">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="form-group">
+                <input
+                type="text"
+                class="form-control"
+                name="name"
+                aria-describedby="emailHelp"
+                placeholder="Nama Pasien"
+                required
+                />
+            </div>
+          </div>
+            <div class="col-md-4">
+                <div class="form-group">
+               
+                <input
+                type="number"
+                class="form-control"
+                name="name"
+                aria-describedby="emailHelp"
+                placeholder="Usia Pasien"
+                required
+                />
+            </div>
+          </div>
+            <div class="col-md-4">
+                <div class="form-group">
+                <select class="custom-select">
+                    <option selected>Jenis Kelamin</option>
+                    <option value="1">Laki-laki</option>
+                    <option value="1">Perempuan</option>
+                </select>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="form-group">
+                <input
+                type="text"
+                class="form-control"
+                name="name"
+                aria-describedby="emailHelp"
+                placeholder="WA"
+                required
+                />
+            </div>
+          </div>
+            <div class="col-md-4">
+                <div class="form-group">
+               
+                <input
+                type="number"
+                class="form-control"
+                name="name"
+                aria-describedby="emailHelp"
+                placeholder="Timing Masuk"
+                required
+                />
+            </div>
+          </div>
+            <div class="col-md-4">
+                <div class="form-group">
+                <input
+                type="text"
+                class="form-control"
+                name="name"
+                aria-describedby="emailHelp"
+                placeholder="Timing Masuk"
+                required
+                />
+            </div>
+          </div>
+        </div> 
+        <div class="row">
+            <div class="col-md-4">
+                <div class="form-group">
+                <input
+                type="number"
+                class="form-control"
+                name="name"
+                aria-describedby="emailHelp"
+                placeholder="Respon Time"
+                required
+                />
+            </div>
+          </div>
+            <div class="col-md-4">
+                <div class="form-group">
+                <input
+                type="text"
+                class="form-control"
+                name="name"
+                aria-describedby="emailHelp"
+                placeholder="Asal RS"
+                required
+                />
+            </div>
+          </div>
+            <div class="col-md-4">
+                <div class="form-group">
+                <input
+                type="text"
+                class="form-control"
+                name="name"
+                aria-describedby="emailHelp"
+                placeholder="Dokter Perujuk"
+                required
+                />
+            </div>
+          </div>
+        </div> 
+        <div class="row">
+            <div class="col-md-4">
+                <div class="form-group">
+               
+                <input
+                type="text"
+                class="form-control"
+                name="name"
+                aria-describedby="emailHelp"
+                placeholder="Diagnosa"
+                required
+                />
+            </div>
+          </div>
+            <div class="col-md-4">
+                <div class="form-group">
+                <input
+                type="text"
+                class="form-control"
+                name="name"
+                aria-describedby="emailHelp"
+                placeholder="Alasan Dirujuk"
+                required
+                />
+            </div>
+          </div>
+            <div class="col-md-4">
+                <div class="form-group">
+                <input
+                type="text"
+                class="form-control"
+                name="name"
+                aria-describedby="emailHelp"
+                placeholder="NEWS/PEWS"
+                required
+                />
+            </div>
+          </div>
+        </div> 
+        <div class="row">
+            <div class="col-md-4">
+                <div class="form-group">
+                <input
+                type="text"
+                class="form-control"
+                name="name"
+                aria-describedby="emailHelp"
+                placeholder="Kebutuhan Dirujuk"
+                required
+                />
+            </div>
+          </div>
+            <div class="col-md-4">
+                <div class="form-group">
+               
+                <input
+                type="text"
+                class="form-control"
+                name="name"
+                aria-describedby="emailHelp"
+                placeholder="Prioritas"
+                required
+                />
+            </div>
+          </div>
+            <div class="col-md-4">
+                <div class="form-group">
+               
+                <input
+                type="text"
+                class="form-control"
+                name="name"
+                aria-describedby="emailHelp"
+                placeholder="KNSL KE"
+                required
+                />
+            </div>
+          </div>
+        </div> 
+        <div class="row">
+            <div class="col-md-4">
+                <div class="form-group">
+               
+                <input
+                type="text"
+                class="form-control"
+                name="name"
+                aria-describedby="emailHelp"
+                placeholder="Timing Klkpn berkas"
+                required
+                />
+            </div>
+          </div>
+            <div class="col-md-4">
+                <div class="form-group">
+               
+                <input
+                type="text"
+                class="form-control"
+                name="name"
+                aria-describedby="emailHelp"
+                placeholder="File Konfirm"
+                required
+                />
+            </div>
+          </div>
+            <div class="col-md-4">
+                <div class="form-group">
+                <select class="custom-select">
+                    <option selected>Status Rujukan</option>
+                    <option value="1">Diterima</option>
+                    <option value="1">Tidak diterima</option>
+                </select>
+            </div>
+          </div>
+        </div> 
+        <div class="row">
+            <div class="col-md-4">
+                <div class="form-group">
+               
+                <input
+                type="number"
+                class="form-control"
+                name="name"
+                aria-describedby="emailHelp"
+                placeholder="Timing Status"
+                required
+                />
+            </div>
+          </div>
+            <div class="col-md-4">
+                <div class="form-group">
+               
+                <input
+                type="text"
+                class="form-control"
+                name="name"
+                aria-describedby="emailHelp"
+                placeholder="Operator"
+                required
+                />
+            </div>
+          </div>
+            <div class="col-md-4">
+                <div class="form-group">
+               
+                <input
+                type="text"
+                class="form-control"
+                name="name"
+                aria-describedby="emailHelp"
+                placeholder="Keterangan"
+                required
+                />
+            </div>
+          </div>
+        </div> 
+        <div class="row">
+            <div class="col-md-4">
+                <div class="form-group">
+               
+                <input
+                type="text"
+                class="form-control"
+                name="name"
+                aria-describedby="emailHelp"
+                placeholder="Advise dokter konsulan DPJP"
+                required
+                />
+            </div>
+          </div>
+            <div class="col-md-4">
+                <div class="form-group">
+               
+                <input
+                type="text"
+                class="form-control"
+                name="name"
+                aria-describedby="emailHelp"
+                placeholder="Advis Dokter Konsulan satgas"
+                required
+                />
+            </div>
+          </div>
+            <div class="col-md-4">
+                <div class="form-group">
+                <input
+                type="text"
+                class="form-control"
+                name="name"
+                aria-describedby="emailHelp"
+                placeholder="Kontak Petugas Perujuk"
+                required
+                />
+            </div>
+          </div>
+        </div>        
+        <div class="row">
+            <div class="col-md-4">
+                <div class="form-group">
+               
+                <input
+                type="number"
+                class="form-control"
+                name="name"
+                aria-describedby="emailHelp"
+                placeholder="Time Respon"
+                required
+                />
+            </div>
+          </div>
+            <div class="col-md-4">
+                <div class="form-group">
+               
+                <input
+                type="text"
+                class="form-control"
+                name="name"
+                aria-describedby="emailHelp"
+                placeholder="Diagnosa Utama"
+                required
+                />
+            </div>
+          </div>
+        </div>        
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">
+            Close
+          </button>
+          <button type="submit" class="btn btn-primary">Tambah</button>
+        </form>
+         <!-- end form -->
+      </div>
+    </div>
+  </div>
+</div>

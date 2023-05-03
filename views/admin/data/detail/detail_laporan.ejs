@@ -1,0 +1,57 @@
+<div class="container-fluid">
+    <!-- Page Heading -->
+    <div class="row">
+        <div class="col-md-8">
+            <div
+                class="card border-left-<%= laporan.news <= 2 ? 'success' : laporan.news <= 5 ? 'warning' : laporan.news <= 6 ? 'danger' : 'danger' %>"
+                data-aos="fade-up"
+            >
+                <div class="card-header">
+                    <h1 class=" h3 text-gray-800">Detail Rujukan</h1>
+                </div>
+                <div class="card-body text-md">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <p>Nama : <%= laporan.nama %></p>
+                            <p>Usia : <%= laporan.usia %></p>
+                            <p>Jenis Kelamin : <%= laporan.jk %></p>
+                            <p>Akses Screaning : <%= laporan.akses %></p>
+                            <p>Asal Rs : <%= laporan.asal %></p>
+                            <p>Dokter Perujuk : <%= laporan.dokter %></p>
+                            <p>Alasan Dirujuk : <%= laporan.rujuk %></p>
+                            <p>Status : <%= laporan.status %></p>
+                            <p>PEWS/NEWS : <%= laporan.news %></p>
+                            <p>Kebutuhan dirujuk : <%= laporan.kebutuhan %></p>
+                            <p>Prioritas : <%= laporan.prioritas %></p>
+                            <p>KNSL Ke : <%= laporan.knsl %></p>
+                            <p>
+                                Timing Kelengkapan Berkas : <%= laporan.klkpn %>
+                            </p>
+                        </div>
+                        <div class="col-md-6">
+                            <p>Operator : <%= laporan.operator %></p>
+                            <p>
+                                Adisi Dokter Konsulan DPJP : <%= laporan.dpjp %>
+                            </p>
+                            <p>
+                                Adisi Dokter Konsulan Satgas : <%=
+                                laporan.satgas %>
+                            </p>
+                         
+                            <p>Timing Masuk : <%= laporan.timingMasuk %></p>
+                            <p>Respon Time : <%= laporan.responTime %></p>
+                            <p>Timing Status : <%= laporan.timingStatus %></p>
+                            <p class="d-inline">Diagnosa:<%- laporan.diagnosa %></p>
+                            <p>Keterangan:<%- laporan.keterangan %></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <a href="/admin/data" class="btn btn-warning mt-2">kembali</a>
+        </div>
+    </div>
+</div>

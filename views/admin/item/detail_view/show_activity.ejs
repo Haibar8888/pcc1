@@ -1,0 +1,109 @@
+<div class="row mt-3">
+  <div class="col-md-7">
+    <div class="table-responsive">
+      <table
+        class="table table-bordered"
+        id="data"
+        width="100%"
+        cellspacing="0"
+      >
+        <thead>
+          <tr>
+            <th>No</th>
+            <th>Name</th>
+            <th>Type</th>
+            <th>Image</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tfoot>
+          <tr>
+            <th>No</th>
+            <th>Name</th>
+            <th>Type</th>
+            <th>Image</th>
+            <th>Action</th>
+          </tr>
+        </tfoot>
+        <tbody>
+         <% activity.map((data,index) => { %>
+          <tr>
+            <td><%= index+1 %></td>
+            <td><%= data.nama%></td>
+            <td><%= data.type%></td>
+            <td>
+              <img
+                src="http://localhost:3000/<%= data.imageUrl %>"
+                alt=""
+                style="width: 100px"
+              />
+            </td>
+            <td>
+              <a
+                href="javascript:void()"
+                type="button"
+                class="btn btn-warning btn-circle btn-sm button-edit"
+                data-id="<%=data.id %>"
+                data-nama="<%=data.nama%>"
+                data-type="<%=data.type%>"
+                data-itemId="<%=itemId %>"
+                ><i class="fas fa-edit"></i
+              ></a>
+              <form
+                action="/admin/item/<%= itemId %>/activity/<%= data.id %>?_method=DELETE"
+                method="POST"
+                class="d-inline"
+              >
+                <button
+                  type="submit"
+                  class="btn btn-danger btn-circle btn-sm"
+                  onclick="return confirm('anda yakin ingin dihapus')"
+                >
+                  <i class="fas fa-trash"></i>
+                </button>
+              </form>
+            </td>
+          </tr>
+          <% }) %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="col-md-5">
+    <form action="/admin/item/add/activity" method="POST" enctype="multipart/form-data">
+      <div class="form-group">
+        <label for="nama">Name</label>
+        <input
+          type="text"
+          class="form-control"
+          id="nama"
+          name="nama"
+          aria-describedby="emailHelp"
+          placeholder="Enter Name"
+        />
+      </div>
+      <div class="form-group">
+        <label for="type">Type</label>
+        <input
+          type="text"
+          class="form-control"
+          id="type"
+          placeholder="Type"
+          name="type"
+        />
+      </div>
+      <div class="form-group">
+        <label for="image">Image</label>
+        <input
+          type="file"
+          class="form-control"
+          id="image"
+          placeholder="Image"
+          name="image"
+        />
+      </div>
+      <input type="hidden" class="itemId" name="itemId" value="<%=itemId %>">
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+  </div>
+</div>
