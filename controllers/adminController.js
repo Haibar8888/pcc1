@@ -16,6 +16,7 @@ const Lokasi = require('../models/Lokasi')
 const Items = require('../models/Items')
 const Stock = require('../models/Stock')
 const Laporan = require('../models/laporan')
+const Dokter = require('../models/dokter')
 const { match } = require('assert')
 const { startOfDay, endOfDay } = require('date-fns')
 module.exports = {
@@ -419,8 +420,9 @@ module.exports = {
             })
         } catch (error) {}
     },
-    viewTambah: (req, res) => {
+    viewTambah: async (req, res) => {
         try {
+            const dokter = await Dokter.find()
             const alertMessage = req.flash('alertMessage')
             const alertStatus = req.flash('alertStatus')
             const alert = {
@@ -431,6 +433,7 @@ module.exports = {
                 title: 'Tambah data',
                 alert,
                 user: req.session.users,
+                dokter,
             })
         } catch (error) {
             console.log(error)
@@ -602,6 +605,7 @@ module.exports = {
         }
     },
     // end data
+    // user
     viewUser: async (req, res) => {
         try {
             const user1 = await Users.find().sort({ _id: -1 })
@@ -662,6 +666,36 @@ module.exports = {
             req.flash('alertMessage', error)
             req.flash('alertStatus', 'danger')
             res.redirect('/admin/user')
+        }
+    },
+    viewDokter: async (req, res) => {
+        try {
+            const dokter = await Dokter.find()
+            const alertMessage = req.flash('alertMessage')
+            const alertStatus = req.flash('alertStatus')
+            const alert = {
+                message: alertMessage,
+                status: alertStatus,
+            }
+            res.render('admin/dokter/view_dokter', {
+                title: 'Dokter',
+                alert,
+                dokter,
+                user: req.session.users,
+            })
+        } catch (error) {}
+    },
+    addDokter: async (req, res) => {
+        try {
+            const { nama } = req.body
+            await Dokter.create({ nama })
+            req.flash('alertMessage', 'Data berhasil ditambahkan')
+            req.flash('alertStatus', 'primary')
+            res.redirect('/admin/dokter')
+        } catch (error) {
+            req.flash('alertMessage', error)
+            req.flash('alertStatus', 'danger')
+            res.redirect('/admin/dokter')
         }
     },
     dataDashboard: async (req, res) => {

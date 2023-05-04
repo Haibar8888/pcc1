@@ -128,14 +128,15 @@
                 </div>
                 <div class="form-row mb-3">
                     <div class="col">
-                        <label for="knsl">KNSL KE</label>
-                        <input
-                            type="text"
-                            class="form-control"
-                            name="knsl"
-                            id="knsl"
-                            placeholder="KNSL KE"
-                        />
+                        <label for="status">Konsul Ke</label>
+                        <select class="custom-select" name="status" id="status">
+                            <option selected>Konsul Ke</option>
+                            <% dokter.map((data,i) => { %>
+                            <option value="<%= data.nama %>"
+                                ><%= data.nama %></option
+                            >
+                            <% }) %>
+                        </select>
                     </div>
                     <div class="col">
                         <label for="satgas"
@@ -162,7 +163,7 @@
                         />
                     </div>
                     <div class="col">
-                        <label for="status">Stuts Rujukan</label>
+                        <label for="status">Status Rujukan</label>
                         <select class="custom-select" name="status" id="status">
                             <option selected>Status Rujukan</option>
                             <option value="Diterima">Diterima</option>

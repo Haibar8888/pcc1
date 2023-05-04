@@ -9,6 +9,10 @@ router.use(auth)
 router.get('/logout', adminController.actionLogout)
 router.get('/dashboard', adminController.viewDashboard)
 // router.get('/dashboard', adminController.dataDashboard)
+// dokter
+router.get('/dokter', adminController.viewDokter)
+router.post('/dokter', adminController.addDokter)
+// end dokter
 // kategori
 router.get('/kategori', adminController.viewKategori)
 router.post('/kategori', adminController.addKategori)
