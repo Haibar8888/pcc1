@@ -145,15 +145,15 @@
                 </div>
                 <div class="form-row mb-3">
                     <div class="col">
-                        <label for="knsl">KNSL KE</label>
-                        <input
-                            type="text"
-                            class="form-control"
-                            name="knsl"
-                            id="knsl"
-                            value="<%= laporan.knsl %>"
-                            placeholder="KNSL KE"
-                        />
+                        <label for="knsl">Konsul KE</label>
+                        <select class="custom-select" name="knsl" id="knsl">
+                            <option selected><%= laporan.knsl %></option>
+                            <% dokter.map((data,i) => { %>
+                            <option value="<%= data.nama %>"
+                                ><%= data.nama %></option
+                            >
+                            <% }) %>
+                        </select>
                     </div>
                     <div class="col">
                         <label for="klkpn">Timing Kelengkapan Berkas</label>
@@ -168,17 +168,7 @@
                     </div>
                 </div>
                 <div class="form-row mb-3">
-                    <div class="col">
-                        <label for="file">File Konfirm</label>
-                        <input
-                            type="file"
-                            class="form-control"
-                            name="file"
-                            id="file"
-                            placeholder="File Konfirm"
-                        />
-                    </div>
-                    <div class="col">
+                    <div class="col-md-6">
                         <label for="status">Stuts Rujukan</label>
                         <select class="custom-select" name="status" id="status">
                             <option selected value="<%= laporan.status %>"

@@ -1,10 +1,18 @@
 <div class="card shadow mb-4">
     <div class="card-header py-3">
         <!-- Button trigger modal -->
-        <div class="row">
-            <a href="/admin/data/add" class="btn btn-warning">
+        <div class="row justify-content-between">
+            <a href="/admin/data/add" class="btn btn-warning mr-1">
                 <i class="fas fa-plus"></i>
             </a>
+            <form action="/admin/export" method="post">
+                <button
+                    type="submit"
+                    class="btn btn-primary justify-content-center align-items-center px-2 py-1"
+                >
+                    <i class="fas fa-file-export"></i>
+                </button>
+            </form>
         </div>
     </div>
     <div class="card-body" data-aos="fade-up">

@@ -59,6 +59,9 @@ router.post('/bank', upload, adminController.addBank)
 router.put('/bank', upload, adminController.editBank)
 router.delete('/bank/:id', adminController.deleteBank)
 // end router bank
+// export data
+router.post('/export', adminController.exportsData)
+// end export data
 // data
 router.get('/data', adminController.viewData)
 router.get('/data/add', adminController.viewTambah)

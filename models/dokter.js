@@ -1,10 +1,10 @@
-const mongoose = require('mongoose');
-const { ObjectId } = mongoose.Schema;
+const mongoose = require('mongoose')
+const { ObjectId } = mongoose.Schema
 const pasienSchema = mongoose.Schema({
     nama: {
         type: String,
-        require: true
-    }
-});
+        require: true,
+    },
+})
 
-module.exports = mongoose.model('Pasien', pasienSchema);
+module.exports = mongoose.model('Dokter', pasienSchema)

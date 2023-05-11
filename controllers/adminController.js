@@ -19,6 +19,8 @@ const Laporan = require('../models/laporan')
 const Dokter = require('../models/dokter')
 const { match } = require('assert')
 const { startOfDay, endOfDay } = require('date-fns')
+const XLSX = require('xlsx')
+const patch = require('path')
 module.exports = {
     viewSignIn: (req, res) => {
         const alertMessage = req.flash('alertMessage')
@@ -531,6 +533,7 @@ module.exports = {
         try {
             const { id } = req.params
             const laporan = await Laporan.findOne({ _id: id })
+            const dokter = await Dokter.find()
             // const alert = {
             //     message: alertMessage,
             //     status: alertStatus
@@ -539,6 +542,7 @@ module.exports = {
                 title: 'Edit data',
                 laporan,
                 user: req.session.users,
+                dokter,
                 // alert
             })
         } catch (error) {
@@ -698,6 +702,25 @@ module.exports = {
             res.redirect('/admin/dokter')
         }
     },
+    // exports data
+    exportsData: async (req, res) => {
+        var wb = XLSX.utils.book_new()
+        await Laporan.find((err, data) => {
+            if (err) {
+                console.log(err)
+            } else {
+                var temp = JSON.stringify(data)
+                temp = JSON.parse(temp)
+                var ws = XLSX.utils.json_to_sheet(temp)
+                var down = __dirname + '/public/exportdata.xlsx'
+                XLSX.utils.book_append_sheet(wb, ws, 'sheet')
+                XLSX.writeFile(wb, down)
+                res.download(down)
+            }
+        })
+    },
+    // exports end data
+
     dataDashboard: async (req, res) => {
         const data = await Laporan.find()
     },
