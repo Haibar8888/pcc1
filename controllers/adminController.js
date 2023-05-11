@@ -712,7 +712,7 @@ module.exports = {
                 var temp = JSON.stringify(data)
                 temp = JSON.parse(temp)
                 var ws = XLSX.utils.json_to_sheet(temp)
-                var down = __dirname + '/public/exportdata.xlsx'
+                var down = __dirname + 'exportdata.xlsx'
                 XLSX.utils.book_append_sheet(wb, ws, 'sheet')
                 XLSX.writeFile(wb, down)
                 res.download(down)
