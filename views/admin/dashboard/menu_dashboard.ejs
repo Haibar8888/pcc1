@@ -1,4 +1,4 @@
-<div class="container-fluid">
+<div class="container-fluid w-full">
     <!-- Page Heading -->
     <div
         class="d-sm-flex align-items-center justify-content-between mb-4"
@@ -8,35 +8,6 @@
     </div>
     <!-- Content Row -->
     <div class="row">
-        <!-- Earnings (Monthly) Card Example -->
-        <!-- <div
-            class="col-xl-3 col-md-6 mb-4"
-            data-aos="fade-left"
-            data-aos-delay="100"
-        >
-            <div class="card border-left-primary shadow h-100 py-2">
-                <div class="card-body">
-                    <div class="row no-gutters align-items-center">
-                        <div class="col mr-2">
-                            <div
-                                class="text-xs font-weight-bold text-primary text-uppercase mb-1"
-                            >
-                                PASIEN
-                            </div>
-                            <div class="h5 mb-0 font-weight-bold text-gray-800">
-                                <%= laporan.length %>
-                            </div>
-                        </div>
-                        <div class="col-auto">
-                            <i class="fas fa-calendar fa-2x text-gray-300"></i>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div> -->
-
-        <!-- Earnings (Monthly) Card Example -->
-
         <!-- Earnings (Monthly) Card Example -->
         <div
             class="col-xl-3 col-md-6 mb-4"
@@ -163,36 +134,35 @@
         href="/admin/data/detail/<%= data.id %>"
         style="text-decoration: none; color: grey;"
     >
-        <div class="row mb-3" data-aos="fade-up">
-            <div class="col-md-12 justify-content-center align-items-center">
+        <div class="row mb-5" data-aos="fade-up">
+            <div class="col-md-12">
                 <div
                     class="card border-left-<%= data.news <= 2 ? 'success' : data.news <= 5 ? 'warning' : data.news < 6 ? 'danger' : 'danger' %>"
                 >
                     <div class="card-header">
-                        <%= data.nama %>
+                        <h4>Nama : <%= data.nama %></h4>
                     </div>
                     <div class="card-body">
-                        <div class="row d-flex align-items-center">
-                            <div class="col-4 d-flex">
-                                <div class="row">
-                                    <canvas id="myPieChart<%=i + 1 %>"></canvas>
+                        <div class="row align-items-center">
+                            <div class="col-8">
+                                <p>Jenis Kelamin : <%= data.jk %></p>
+                                <p>Asal Rumah Sakit : <%= data.asal %></p>
+                                <p>Usia : <%= data.usia %></p>
+                                <p>News : <%= data.news %></p>
+                                <p>
+                                    Timing Masuk :
+                                    <b><%= data.timingMasuk %></b>
+                                </p>
+                            </div>
+                            <div class="col-auto">
+                                <div
+                                    class="d-flex flex-column align-items-center"
+                                >
+                                    <h2>Respon Time</h2>
+                                    <h2 class="">
+                                        <b><%= data.responTime %></b>
+                                    </h2>
                                 </div>
-                            </div>
-                            <div class="col-6">
-                                <ul class="data">
-                                    <li>Nama : <%= data.nama %></li>
-                                    <li>Jenis kelamin : <%= data.jk %></li>
-                                    <li>Asal Rumah Sakit : <%= data.asal %></li>
-                                    <li>Usia : <%= data.usia %></li>
-                                    <li>News/Pews : <%= data.news %></li>
-                                    <li>
-                                        Waktu Masuk: <%= data.timingMasuk %>
-                                    </li>
-                                </ul>
-                            </div>
-                            <div class="col-md-2">
-                                <p>Waktu Respon</p>
-                                <p class="time"><%= data.responTime %></p>
                             </div>
                         </div>
                     </div>
@@ -211,53 +181,6 @@
     <!-- harian content -->
     <!-- Content Row -->
     <!-- konten harian -->
-    <div class="container-fluid">
-        <%- include('../../partials/message.ejs') %>
-        <!-- Page Heading -->
-
-        <!-- End of Main Content -->
-
-        <!-- <div class="row">
-            <!-- Content Column -->
-
-        <!-- <div class="col-lg-12 mb-4">
-                <!-- Illustrations -->
-
-        <!-- Approach -->
-        <!-- <div class="card shadow mb-4">
-                    <div class="card-header py-3">
-                        <h6 class="m-0 font-weight-bold text-primary">
-                            Data Laporan
-                        </h6>
-                    </div>
-                    <div class="card-body">
-                        <div class="chartMenu">
-                            <input
-                                onchange="filterData()"
-                                type="date"
-                                value="2023-05-01"
-                                id="startDate"
-                            />
-                            <input
-                                onchange="filterData()"
-                                type="date"
-                                value="2023-05-03"
-                                id="endDate"
-                            />
-                        </div>
-                        <div class="chartCard">
-                            <div class="chartBox">
-                                <canvas id="myChart"></canvas>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>  -->
-        <!-- Footer -->
-        <%- include('../../partials/footer') %>
-        <!-- End of Footer -->
-    </div>
 
     <!-- konten bulanan -->
 

@@ -21,6 +21,8 @@ const { match } = require('assert')
 const { startOfDay, endOfDay } = require('date-fns')
 const XLSX = require('xlsx')
 const patch = require('path')
+const laporan = require('../models/laporan')
+const { error } = require('console')
 module.exports = {
     viewSignIn: (req, res) => {
         const alertMessage = req.flash('alertMessage')
@@ -705,20 +707,45 @@ module.exports = {
     // exports data
     exportsData: async (req, res) => {
         var wb = XLSX.utils.book_new()
-        await Laporan.find((err, data) => {
-            if (err) {
-                console.log(err)
-            } else {
-                var temp = JSON.stringify(data)
-                temp = JSON.parse(temp)
-                var ws = XLSX.utils.json_to_sheet(temp)
-                var down = __dirname + 'exportdata.xlsx'
-                XLSX.utils.book_append_sheet(wb, ws, 'sheet')
-                XLSX.writeFile(wb, down)
-                res.download(down)
+        const laporan = await Laporan.find((err, data) => {
+            for (let index = 0; index < data.length; index++) {
+                data[index].diagnosa = data[index].diagnosa.replace(
+                    /<[^>]*>?/gm,
+                    ''
+                )
+                data[index].keterangan = data[index].keterangan.replace(
+                    /<[^>]*>?/gm,
+                    ''
+                )
             }
+            var temp = JSON.stringify(data)
+            temp = JSON.parse(temp)
+            var ws = XLSX.utils.json_to_sheet(temp)
+            var down = __dirname + 'exportdata.xlsx'
+            XLSX.utils.book_append_sheet(wb, ws, 'sheet')
+            XLSX.writeFile(wb, down)
+            res.download(down)
         })
     },
+    // data.map(datas => {
+    //     ;(datas.diagnosa = datas.diagnosa.replace(/<[^>]*>?/gm, '')),
+    //         (datas.keterangan = datas.keterangan.replace(
+    //             /<[^>]*>?/gm,
+    //             ''
+    //         ))
+    //     Laporan.save(datas)
+    //     // if (err) {
+    //     //     alert('data gagal diexport')
+    //     // } else {
+    //     //     var temp = JSON.stringify(datas)
+    //     //     temp = JSON.parse(temp)
+    //     //     var ws = XLSX.utils.json_to_sheet(temp)
+    //     //     // var down = __dirname + 'exportdata.xlsx'
+    //     //     XLSX.utils.book_append_sheet(wb, ws, 'sheet')
+    //     //     XLSX.writeFile(wb)
+    //     //     res.download()
+    //     // }
+    // })
     // exports end data
 
     dataDashboard: async (req, res) => {
