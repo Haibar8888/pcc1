@@ -10,34 +10,17 @@
                 <div class="row">
                     <div class="col-md-6">
                         <label for="tanggal">Tanggal</label>
-                        <input
-                            type="date"
-                            class="form-control"
-                            name="tanggal"
-                            id="tanggal"
-                        />
+                        <input type="date" class="form-control" name="tanggal" id="tanggal" />
                     </div>
                 </div>
                 <div class="form-row mb-3">
                     <div class="col">
                         <label for="">Nama</label>
-                        <input
-                            type="text"
-                            class="form-control"
-                            name="nama"
-                            id="nama"
-                            placeholder="Nama"
-                        />
+                        <input type="text" class="form-control" name="nama" id="nama" placeholder="Nama" />
                     </div>
                     <div class="col">
                         <label for="usia">Usia</label>
-                        <input
-                            type="number"
-                            class="form-control"
-                            name="usia"
-                            id="usia"
-                            placeholder="Usia"
-                        />
+                        <input type="number" class="form-control" name="usia" id="usia" placeholder="Usia" />
                     </div>
                 </div>
                 <div class="form-row mb-3">
@@ -51,79 +34,40 @@
                     </div>
                     <div class="col">
                         <label for="akses">Akses Screening</label>
-                        <input
-                            type="text"
-                            class="form-control"
-                            name="akses"
-                            id="akses"
-                            placeholder="Wa"
-                        />
+                        <input type="text" class="form-control" name="akses" id="akses" placeholder="Wa" />
                     </div>
                 </div>
                 <div class="form-row mb-3">
                     <div class="col">
                         <label for="asal">Asal RS</label>
-                        <input
-                            type="text"
-                            class="form-control"
-                            name="asal"
-                            id="asal"
-                            placeholder="Asal RS"
-                        />
+                        <input type="text" class="form-control" name="asal" id="asal" placeholder="Asal RS" />
                     </div>
                     <div class="col">
                         <label for="dokter">Dokter Perujuk</label>
-                        <input
-                            type="text"
-                            class="form-control"
-                            name="dokter"
-                            id="dokter"
-                            placeholder="Dokter Perujuk"
-                        />
+                        <input type="text" class="form-control" name="dokter" id="dokter"
+                            placeholder="Dokter Perujuk" />
                     </div>
                 </div>
                 <div class="form-row mb-3">
                     <div class="col">
                         <label for="rujuk">Alasan Dirujuk</label>
-                        <input
-                            type="text"
-                            class="form-control"
-                            name="rujuk"
-                            id="rujuk"
-                            placeholder="Alasan dirujuk"
-                        />
+                        <input type="text" class="form-control" name="rujuk" id="rujuk" placeholder="Alasan dirujuk" />
                     </div>
                     <div class="col">
                         <label for="news">News/Pews</label>
-                        <input
-                            type="number"
-                            class="form-control"
-                            name="news"
-                            id="news"
-                            placeholder="News/Pews"
-                        />
+                        <input type="number" class="form-control" name="news" id="news" placeholder="News/Pews" />
                     </div>
                 </div>
                 <div class="form-row mb-3">
                     <div class="col">
                         <label for="kebutuhan">Kebutuhan Dirujuk</label>
-                        <input
-                            type="text"
-                            class="form-control"
-                            name="kebutuhan"
-                            id="kebutuhan"
-                            placeholder="Kebutuhan Dirujuk"
-                        />
+                        <input type="text" class="form-control" name="kebutuhan" id="kebutuhan"
+                            placeholder="Kebutuhan Dirujuk" />
                     </div>
                     <div class="col">
                         <label for="prioritas">Prioritas</label>
-                        <input
-                            type="text"
-                            class="form-control"
-                            name="prioritas"
-                            id="prioritas"
-                            placeholder="Prioritas"
-                        />
+                        <input type="text" class="form-control" name="prioritas" id="prioritas"
+                            placeholder="Prioritas" />
                     </div>
                 </div>
                 <div class="form-row mb-3">
@@ -131,37 +75,20 @@
                         <label for="status">Konsul Ke</label>
                         <select class="custom-select" name="knsl" id="knsl">
                             <option selected>Konsul Ke</option>
-                            <% dokter.map((data,i) => { %>
-                            <option value="<%= data.nama %>"
-                                ><%= data.nama %></option
-                            >
-                            <% }) %>
+                            <% dokter.map((data,i)=> { %>
+                                <option value="<%= data.nama %>">
+                                    <%= data.nama %>
+                                </option>
+                                <% }) %>
                         </select>
                     </div>
                     <div class="col">
-                        <label for="satgas"
-                            >Advisi Dokter Konsulan Satgas</label
-                        >
-                        <input
-                            type="text"
-                            class="form-control"
-                            name="satgas"
-                            id="satgas"
-                            placeholder="Advisi Dokter Konsulan Satgas"
-                        />
+                        <label for="satgas">Advisi Dokter Konsulan Satgas</label>
+                        <input type="text" class="form-control" name="satgas" id="satgas"
+                            placeholder="Advisi Dokter Konsulan Satgas" />
                     </div>
                 </div>
                 <div class="form-row mb-3">
-                    <div class="col">
-                        <label for="file">File Konfirm</label>
-                        <input
-                            type="file"
-                            class="form-control"
-                            name="file"
-                            id="file"
-                            placeholder="File Konfirm"
-                        />
-                    </div>
                     <div class="col">
                         <label for="status">Status Rujukan</label>
                         <select class="custom-select" name="status" id="status">
@@ -175,91 +102,49 @@
                 <div class="form-row mb-3">
                     <div class="col">
                         <label for="dpjp">Advisi Dokter Konsulan DPJP</label>
-                        <input
-                            type="text"
-                            class="form-control"
-                            name="dpjp"
-                            id="dpjp"
-                            placeholder="Advisi Dokter Konsulan DPJP"
-                        />
+                        <input type="text" class="form-control" name="dpjp" id="dpjp"
+                            placeholder="Advisi Dokter Konsulan DPJP" />
                     </div>
                     <div class="col">
-                        <label for="klkpn"
-                            >Timing Kelengkapan berkas Berkas</label
-                        >
-                        <input
-                            type="time"
-                            class="form-control"
-                            name="klkpn"
-                            id="klkpn"
-                            placeholder="Kelengkapan berkas"
-                        />
+                        <label for="klkpn">Timing Kelengkapan berkas Berkas</label>
+                        <input type="time" class="form-control" name="klkpn" id="klkpn"
+                            placeholder="Kelengkapan berkas" />
                     </div>
                 </div>
                 <div class="form-row mb-3">
                     <div class="col">
                         <label for="timingMasuk">Timing Masuk</label>
-                        <input
-                            type="time"
-                            class="form-control"
-                            name="timingMasuk"
-                            id="timingMasuk"
-                            placeholder="Timing Masuk"
-                        />
+                        <input type="time" class="form-control" name="timingMasuk" id="timingMasuk"
+                            placeholder="Timing Masuk" />
                     </div>
                     <div class="col">
                         <label for="respon">Respon Time</label>
-                        <input
-                            type="time"
-                            class="form-control"
-                            name="responTime"
-                            id="responTime"
-                            placeholder="Respon Time"
-                        />
+                        <input type="time" class="form-control" name="responTime" id="responTime"
+                            placeholder="Respon Time" />
                     </div>
                 </div>
                 <div class="form-row mb-3">
                     <div class="col">
                         <label for="timingStatus">Timing Status</label>
-                        <input
-                            type="time"
-                            class="form-control"
-                            name="timingStatus"
-                            id="timingStatus"
-                            placeholder="Timing Status"
-                        />
+                        <input type="time" class="form-control" name="timingStatus" id="timingStatus"
+                            placeholder="Timing Status" />
                     </div>
                     <div class="col">
                         <label for="operator">Operator</label>
-                        <input
-                            type="text"
-                            class="form-control"
-                            name="operator"
-                            id="operator"
-                            value="<%=user.username %>"
-                            placeholder="Operator"
-                        />
+                        <input type="text" class="form-control" name="operator" id="operator"
+                            value="<%=user.username %>" placeholder="Operator" />
                     </div>
                 </div>
                 <div class="form-row mb-2">
                     <div class="col">
                         <label for="diagnosa">Diagnosa</label>
-                        <textarea
-                            id="summernote"
-                            name="diagnosa"
-                            class=""
-                            placeholder="Diagnosa"
-                        ></textarea>
+                        <textarea id="summernote" name="diagnosa" class="" placeholder="Diagnosa"></textarea>
                     </div>
                 </div>
                 <div class="form-row">
                     <div class="col">
                         <label for="keterangan">Keterangan</label>
-                        <textarea
-                            id="summernote1"
-                            name="keterangan"
-                            class=""
-                        ></textarea>
+                        <textarea id="summernote1" name="keterangan" class=""></textarea>
                     </div>
                 </div>
                 <div class="form-row mt-2">

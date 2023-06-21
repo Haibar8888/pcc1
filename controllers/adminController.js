@@ -707,7 +707,7 @@ module.exports = {
 
     editDokter: async (req, res) => {
         try {
-            const { id,nama } = req.body
+            const { id, nama } = req.body
             const dokter = await Dokter.findOne({ _id: id })
             dokter.nama = nama
             dokter.save()
@@ -721,7 +721,7 @@ module.exports = {
         }
     },
 
-    deleteDokter: async function (req, res) {
+    deleteDokter: async function(req, res) {
         try {
             const { id } = req.params
             const dokter = await Dokter.findOne({ _id: id })
