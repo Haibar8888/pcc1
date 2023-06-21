@@ -740,15 +740,16 @@ module.exports = {
         var wb = XLSX.utils.book_new()
         const laporan = await Laporan.find((err, data) => {
             for (let index = 0; index < data.length; index++) {
+                
                 data[index].diagnosa = data[index].diagnosa.replace(
                     /<[^>]*>?/gm,
                     ''
                 )
                 data[index].keterangan = data[index].keterangan.replace(
                     /<[^>]*>?/gm,
-                    ''
-                )
+                    '')
             }
+            
             var temp = JSON.stringify(data)
             temp = JSON.parse(temp)
             var ws = XLSX.utils.json_to_sheet(temp)
