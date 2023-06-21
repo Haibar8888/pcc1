@@ -12,6 +12,8 @@ router.get('/dashboard', adminController.viewDashboard)
 // dokter
 router.get('/dokter', adminController.viewDokter)
 router.post('/dokter', adminController.addDokter)
+router.put('/dokter', adminController.editDokter)
+router.delete('/dokter/:id', adminController.deleteDokter);
 // end dokter
 // kategori
 router.get('/kategori', adminController.viewKategori)

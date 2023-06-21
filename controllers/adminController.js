@@ -646,7 +646,6 @@ module.exports = {
     deleteUser: async (req, res) => {
         try {
             const { id } = req.params
-            console.log(id)
             const user = await Users.findOne({ _id: id })
             await user.delete()
             req.flash('alertMessage', 'data berhasil dihapus')
@@ -674,9 +673,10 @@ module.exports = {
             res.redirect('/admin/user')
         }
     },
+
     viewDokter: async (req, res) => {
         try {
-            const dokter = await Dokter.find()
+            const dokter = await Dokter.find().sort({ _id: -1 })
             const alertMessage = req.flash('alertMessage')
             const alertStatus = req.flash('alertStatus')
             const alert = {
@@ -700,6 +700,37 @@ module.exports = {
             res.redirect('/admin/dokter')
         } catch (error) {
             req.flash('alertMessage', error)
+            req.flash('alertStatus', 'danger')
+            res.redirect('/admin/dokter')
+        }
+    },
+
+    editDokter: async (req, res) => {
+        try {
+            const { id,nama } = req.body
+            const dokter = await Dokter.findOne({ _id: id })
+            dokter.nama = nama
+            dokter.save()
+            req.flash('alertMessage', 'Data berhasil diedit')
+            req.flash('alertStatus', 'primary')
+            res.redirect('/admin/dokter')
+        } catch (error) {
+            req.flash('alertMessage', error.message)
+            req.flash('alertStatus', 'danger')
+            res.redirect('/admin/dokter')
+        }
+    },
+
+    deleteDokter: async function (req, res) {
+        try {
+            const { id } = req.params
+            const dokter = await Dokter.findOne({ _id: id })
+            await dokter.delete()
+            req.flash('alertMessage', 'Data berhasil dihapus')
+            req.flash('alertStatus', 'primary')
+            res.redirect('/admin/dokter')
+        } catch (error) {
+            req.flash('alertMessage', error.message)
             req.flash('alertStatus', 'danger')
             res.redirect('/admin/dokter')
         }
