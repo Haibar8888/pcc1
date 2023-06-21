@@ -1,12 +1,6 @@
-<ul
-    class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion"
-    id="accordionSidebar"
->
+<ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
     <!-- Sidebar - Brand -->
-    <a
-        class="sidebar-brand d-flex align-items-center justify-content-center"
-        href="/admin/dashboard"
-    >
+    <a class="sidebar-brand d-flex align-items-center justify-content-center" href="/admin/dashboard">
         <!-- <div class="sidebar-brand-icon rotate-n-15"> -->
         <!-- Logo RS -->
         <!-- </div> -->
@@ -19,9 +13,8 @@
     <!-- Nav Item - Dashboard -->
     <li class="nav-item <%- title == 'Dashboard' ? 'active' : '' %>">
         <a class="nav-link" href="/admin/dashboard">
-            <i class="fas fa-fw fa-money-check"></i>
-            <span>Dashboard</span></a
-        >
+            <i class="fas fa-tachometer-alt-slowest"></i>
+            <span>Dashboard</span></a>
     </li>
 
     <!-- Divider -->
@@ -29,44 +22,25 @@
 
     <!-- Heading -->
     <div class="sidebar-heading">Master</div>
-
-    <!-- Nav Item - Pages Collapse Menu -->
-    <!-- Nav Item - Charts -->
-    <!-- <li class="nav-item <%- title == 'Menu Utama' ? 'active' : '' %>">
-        <a class="nav-link" href="/admin/menu">
-            <i class="fas fa-fw fa-list-alt"></i>
-            <span>Manu Utama</span></a
-        >
-    </li> -->
-    <!-- Nav Item - Tables -->
-    <!-- <li class="nav-item <%- title == 'Barang' ? 'active' : '' %>">
-        <a class="nav-link" href="/admin/barang">
-            <i class="fas fa-fw fa-money-check"></i>
-            <span>List Barang</span></a
-        >
-    </li> -->
     <li class="nav-item <%- title == 'Data' ? 'active' : '' %>">
         <a class="nav-link" href="/admin/data">
             <i class="fas fa-fw fa-money-check"></i>
-            <span>Data</span></a
-        >
+            <span>Data</span></a>
     </li>
-    <% if (user.role == 'admin') { %>
-    <li class="nav-item <%- title == 'User' ? 'active' : '' %>">
-        <a class="nav-link" href="/admin/user">
-            <i class="fas fa-fw fa-money-check"></i>
-            <span>Operator</span></a
-        >
-    </li>
-    <li class="nav-item <%- title == 'Dokter' ? 'active' : '' %>">
-        <a class="nav-link" href="/admin/dokter">
-            <i class="fas fa-fw fa-money-check"></i>
-            <span>Dokter</span></a
-        >
-    </li>
-    <% } %>
+    <% if (user.role=='admin' ) { %>
+        <li class="nav-item <%- title == 'User' ? 'active' : '' %>">
+            <a class="nav-link" href="/admin/user">
+                <i class="fas fa-users"></i>
+                <span>Operator</span></a>
+        </li>
+        <li class="nav-item <%- title == 'Dokter' ? 'active' : '' %>">
+            <a class="nav-link" href="/admin/dokter">
+                <i class="fas fa-user-md"></i>
+                <span>Dokter</span></a>
+        </li>
+        <% } %>
 
-    <!-- <li class="nav-item">
+            <!-- <li class="nav-item">
         <a class="nav-link" href="/admin/stockopname">
             <i class="fas fa-fw fa-hotel"></i>
             <span>Stock Opname</span></a
@@ -79,7 +53,7 @@
         >
     </li>
     <!-- Divider -->
-    <!-- <hr class="sidebar-divider d-none d-md-block" />
+            <!-- <hr class="sidebar-divider d-none d-md-block" />
     <div class="sidebar-heading">Order</div>
     <li class="nav-item <%- title == 'Kategori' ? 'active' : '' %>">
         <a class="nav-link" href="/admin/kategori">
@@ -100,8 +74,8 @@
         >
     </li> -->
 
-    <!-- Sidebar Toggler (Sidebar) -->
-    <div class="text-center d-none d-md-inline">
-        <button class="rounded-circle border-0" id="sidebarToggle"></button>
-    </div>
+            <!-- Sidebar Toggler (Sidebar) -->
+            <div class="text-center d-none d-md-inline">
+                <button class="rounded-circle border-0" id="sidebarToggle"></button>
+            </div>
 </ul>
